@@ -1,2 +1,5 @@
-# media-manager
-Just another project to get my study with Typescript and my Javascript mojo moving :zap:
+# Media Manager
+
+Just another project to get my Javascript and Typescript mojo moving :zap:
+
+It is built using an MVC with a service-oriented design.
