@@ -1,0 +1,28 @@
+{
+  "name": "media-manager",
+  "version": "1.0.0",
+  "description": "media manager application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lumexralph/media-manager.git"
+  },
+  "keywords": [
+    "javascript",
+    "typescript"
+  ],
+  "author": "Olumide Ogundele <olumideralph@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lumexralph/media-manager/issues"
+  },
+  "homepage": "https://github.com/Lumexralph/media-manager#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.0",
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.7.5"
+  }
+}
