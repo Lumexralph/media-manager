@@ -1,3 +1,6 @@
+import localForage from "localforage";
+
+
 enum Genre {
     Horror = "Horror",
     Fantastic = "Fantastic",
@@ -224,5 +227,32 @@ class MediaCollection<T extends Media> {
                 return media.identifier !== itemID;
             });
         }
+    }
+}
+
+// isolate persistence concerns in the service layer by implementing the service interface
+// functionally decomposing our application
+interface MediaService<T extends Media> {
+    loadMediaCollection(identifier: string): Promise<MediaCollection<T>>;
+    saveMediaCollection(collection: Readonly<MediaCollection<T>>): Promise<void>;
+    getMediCollectionIdentifiersList(): Promise<string[]>;
+    removeMediaCollection(identifier: string): Promise<void>;
+}
+
+// create an implementation of the MediaService interface
+class MediaServiceImpl<T extends Media> implements MediaService<T> {
+    private readonly _store: LocalForage;
+
+    constructor(private _type: Function) {
+        console.log(`Initializing the media service for ${_type.name}`);
+
+        // each instance of the media has its own datastore
+        // consult https://github.com/localForage/ to read more.
+        this._store = localForage.createInstance({
+            name: "mediaManager",
+            version: 1.0,
+            storeName: `media-manager-${_type.name}`,
+            description: "MediaManager data store",
+        })
     }
 }
